@@ -9,19 +9,13 @@ Before running [preprocess.py](preprocess.py), please change the path of 'loan_d
 It will output two files to your current directory: train_data.csv and balanced_data.csv
 
 ## Model Training
-Please change the path in line 10 to your local path to train_data.csv  
+Please change the path of train_data.csv in line 10 to your local path  
 The hyperparameters used in [train.py](train.py):  
 epoch: 10000  
 batch_size: 16  
 learning_rate: 0.0000001  
 optimizer: SGD
 
-### train_data.csv
-This csv is used to train the model
-
-### balanced_data.csv
-As the original dataset is not balanced, the number of ('TARGET' == 0) is much greater than ('TARGET' == 1). The preprocess script randomly sampled a equal number of ('TARGET' == 1) from ('TARGET' == 0)  
-The balanced_data.csv is used to provide visualisation in the early stage, it did not involve in the model training
 
 
 
