@@ -16,6 +16,10 @@ batch_size: 16
 learning_rate: 0.0000001  
 optimizer: SGD
 
+## Inference
+Please change the path of train_data.csv and state_dict model to your local path  
+[test.py](test.py) will output the accuracy and mean loss after forward pass the validation dataset to your model
+
 
 
 
