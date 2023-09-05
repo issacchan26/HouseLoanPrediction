@@ -62,12 +62,9 @@ for i in range(0, epoch+1):
             y_pred = model(X_val)
             loss = criterion(y_pred, y_val.unsqueeze(1)) 
             val_loss += loss.item()
-
-            acc = (y_pred.round() == y_val).float().mean().item()
     
     writer.add_scalar('train loss', train_loss, i)
     writer.add_scalar('val loss', val_loss, i)
-    writer.add_scalar('accuracy', acc, i)
 
     torch.save(model.state_dict(), 'latest.pt')
     if val_loss < best_loss:
@@ -79,7 +76,6 @@ for i in range(0, epoch+1):
         print('epoch:', i)
         print('train_loss:', train_loss)
         print('val_loss:', val_loss)
-        print('epoch_acc:', acc)
 
 
 
