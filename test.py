@@ -1,11 +1,9 @@
 import torch
 import torch.nn as nn
-import torch.optim as optim
 from sklearn.model_selection import train_test_split
 import pandas as pd
 from model import MLP
 from torch.utils.data import TensorDataset, DataLoader
-from torch.utils.tensorboard import SummaryWriter
 
 path = 'path to train_data.csv'
 model_path = 'path to your state_dict model'
