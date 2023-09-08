@@ -10,16 +10,23 @@ model_path = 'path to your state_dict model'
 
 def read_csv(path):
     df = pd.read_csv(path, on_bad_lines='skip')
-    X = df.drop(['TARGET'], axis=1).values
-    y = df['TARGET'].values
+    feature = df.drop(['TARGET'], axis=1)
+    feature = preprocessing(feature)
+    X = feature.values  # extract the features from input df
+    y = df['TARGET'].values  # extract the ground truth from input df
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=3)
 
     X_train = torch.FloatTensor(X_train)
-    X_test = torch.FloatTensor(X_test)
+    X_test = torch.FloatTensor(X_test)  # eval dataset
     y_train = torch.FloatTensor(y_train)
-    y_test = torch.FloatTensor(y_test)
+    y_test = torch.FloatTensor(y_test)  # eval dataset
 
     return X_train, X_test, y_train, y_test
+
+def preprocessing(df):  # preprocessing the data to the range of (-1,1)
+    for i in df:
+        df[i] = df[i] /df[i].abs().max()
+    return df
 
 _, X_test, _, y_test = read_csv(path)
 test_tensor = TensorDataset(X_test, y_test) 
