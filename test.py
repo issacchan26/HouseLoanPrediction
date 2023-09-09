@@ -7,6 +7,7 @@ from torch.utils.data import TensorDataset, DataLoader
 
 path = 'path to train_data.csv'
 model_path = 'path to your state_dict model'
+number_of_features = 50
 
 def read_csv(path):
     df = pd.read_csv(path, on_bad_lines='skip')
@@ -33,7 +34,7 @@ test_tensor = TensorDataset(X_test, y_test)
 test_loader = DataLoader(dataset = test_tensor, batch_size = 1)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = MLP(20,1).to(device)
+model = MLP(number_of_features,1).to(device)
 model.load_state_dict(torch.load(model_path))
 criterion = nn.BCELoss()
 
