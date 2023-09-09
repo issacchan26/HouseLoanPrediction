@@ -12,9 +12,9 @@ The data preprocessing will present in both [read_csv.py](read_csv.py) and [trai
 ## Model Training
 Please change the path of train_data.csv in line 10 to your local path  
 The hyperparameters used in [train.py](train.py):  
-epoch: 10000  
-batch_size: 16  
-learning_rate: 0.0000001  
+epoch = 10000  
+batch_size = 4  
+learning_rate=0.0001  
 optimizer: SGD
 
 ## Inference
