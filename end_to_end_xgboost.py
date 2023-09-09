@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score
 
-input_file = "/Users/issacchan/PycharmProjects/data/loan_data.csv"
+input_file = "path to loan_data.csv"
 number_of_feature = 97
 def df_preprocessing(df):
     for i in df:
