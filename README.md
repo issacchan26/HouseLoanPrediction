@@ -23,7 +23,10 @@ Please change the path of train_data.csv and state_dict model to your local path
 
 ## XGBoost
 [xgboost_classifier.py](xgboost_classifier.py) provides the comparison between XGBoost and MLP method, using same set of training data  
-Please change the path of train_data.csv to your local path
+Please change the path of train_data.csv to your local path  
+[end_to_end_xgboost.py](end_to_end_xgboost.py) provides the end to end script for XGBoost, by taking loan_data.csv as input  
+It will output all accuracy results for each number of features
+
 
 
 
