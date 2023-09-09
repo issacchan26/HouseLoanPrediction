@@ -10,8 +10,8 @@ from torch.utils.tensorboard import SummaryWriter
 
 path = 'path to train_data.csv'
 epoch = 10000
-batch_size = 16
-learning_rate=0.0001
+batch_size = 8
+learning_rate=0.00001
 
 def read_csv(path):
     df = pd.read_csv(path, on_bad_lines='skip')
@@ -40,9 +40,9 @@ test_tensor = TensorDataset(X_test, y_test)
 test_loader = DataLoader(dataset = test_tensor, batch_size = batch_size)
 accuracy_loader = DataLoader(dataset = test_tensor, batch_size = 1)  # batch size = 1 for accuracy calculation
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda')
 writer = SummaryWriter()  # tensorboard for monitoring the training progress
-model = MLP(20,1).to(device)
+model = MLP(50,1).to(device)
 criterion = nn.BCELoss()  # BCE for binary classification
 optimizer = optim.SGD(model.parameters(), lr=learning_rate)
 
@@ -97,4 +97,5 @@ for i in range(0, epoch+1):
     if val_loss < best_loss:
         best_loss = val_loss
         torch.save(model.state_dict(), 'best.pt')
+    
     
