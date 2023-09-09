@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 
 input_file = "path to loan_data.csv"  # change path here
+number_of_features = 50
 pd.set_option('display.max_columns', None)  # show all column when print df
 
 df = pd.read_csv(input_file, on_bad_lines='skip')
@@ -32,13 +33,13 @@ model = XGBClassifier()  # use XGBoost to find the feature importance
 model.fit(X_train, y_train)
 importance = model.feature_importances_
 
-top20 = np.argpartition(importance, -20)[-20:]  # sort out top 20 important features
+top = np.argpartition(importance, -number_of_features)[-number_of_features:]  # sort out top 20 important features
 feature_name_selected = ['TARGET']
-print('Top 20 features:')
-for i in top20:
+print('Top features:')
+for i in top:
     feature_name_selected.append(feature_name[i])
 
-print(top20)
+print(top)
 processed_data = df_sampled[feature_name_selected]
 print(processed_data)
 
