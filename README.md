@@ -1,4 +1,4 @@
-# Kaggle dataset: House Loan Data Analysis-Deep Learning
+# House Loan Prediction with XGBoost and MLP
 Data Analysis and prediction on Kaggle dataset: House Loan Data Analysis-Deep Learning  
 This repo provides algorithms for data preprocessing and model training for House Loan problem  
 Dataset: https://www.kaggle.com/datasets/deependraverma13/house-loan-data-analysis-deep-learning
